@@ -110,7 +110,7 @@ document.querySelectorAll('.button_buy').forEach(button => {
 })
 
 function server_on () {
-    fetch('https://raw.githubusercontent.com/Kriiss20/Fatfood/refs/heads/main/fatfood_server.json?token=GHSAT0AAAAAADPBVYF7Y35GWYN5CNHEUZV62ITPTWQ')
+    fetch('https://raw.githubusercontent.com/Kriiss20/Fatfood/refs/heads/main/fatfood_server.json')
         .then(r => r.json())
         .then(data => {
             let catalogo_productos = document.querySelector('.catalogo_productos')
@@ -131,4 +131,5 @@ function server_on () {
             })
         })
 }
+
 
