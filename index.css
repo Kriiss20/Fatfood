@@ -346,4 +346,47 @@ html, body {
         padding: 5px 18px;
         font-size: 1.1em;
     }
+
+}
+@media (max-width: 486px) {
+    .container_anuncio {
+        height: 13em;
+    }
+    .container_masSells--tittle {
+        font-size: 1.3em;
+    }
+    .post_sell_looked {
+        height: 180px;
+    }
+    .post_sell_looked img {
+        height: 7em;
+    }
+    .post_sell_looked label {
+        font-size: 1em;
+    }
+    .container_arrows {
+        top: 26em;
+    }
+    .nav_catalogo {
+        max-height: 2.2em;
+    }
+    .nav_catalogo--inside {
+        height: 70%;
+        max-width: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 5px;
+        border: 3px solid #797676;
+        border-radius: 10px;
+        box-shadow: 0 0 20px 1px #521a1f;
+    }
+    .nav_catalogo--inside label {
+        padding: 5px 10px;
+        font-size: 1em;
+        font-weight: 550;
+        color: #0d0d0d;
+        border-radius: 10px;
+    }
+
 }
