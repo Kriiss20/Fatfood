@@ -211,7 +211,7 @@ html, body {
     gap: 2em;
 }
 .container_productos {
-    max-height: 17em;
+    max-height: 18em;
     max-width: 10em;
     padding: 15px;
     display: flex;
@@ -390,3 +390,4 @@ html, body {
     }
 
 }
+
