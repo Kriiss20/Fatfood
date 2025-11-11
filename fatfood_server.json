@@ -4,7 +4,7 @@
     "productos": [
         {
             "id": 1,
-            "nombre": "Combo M: Hamb+Papas+ bebida",
+            "nombre": "Combo M: Hamb + Papas + bebida",
             "precio": 120,
             "descripcion": "Hamburguesa mediana de 1/4 de libra, papas y bebida a elegir",
             "categoria": "salados",
@@ -77,6 +77,7 @@
     ]
 
 }
+
 
 
 
