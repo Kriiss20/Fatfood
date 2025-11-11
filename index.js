@@ -121,7 +121,7 @@ function server_on () {
                 container_productos.innerHTML = `
                 <img class="producto_imagen" src="${p.imagen}">
                 <label>${p.nombre}</label>
-                <label>${p.precio} </label>
+                <label>${p.precio}$ </label>
                 <div class="productos_buttom">
                     <button class="button_buy" data-product-id="${p.id}">Comprar</button>
                     <img class="producto_car--svg" src="svg/cart.svg" alt="">
@@ -131,6 +131,7 @@ function server_on () {
             })
         })
 }
+
 
 
 
