@@ -64,7 +64,17 @@
             "categoria": "bebidas",
             "imagen" : "https://scontent.faep6-1.fna.fbcdn.net/v/t1.6435-9/81774548_10157616886610450_7834544750525939712_n.png?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OR39SVKlrg4Q7kNvwGBfDtM&_nc_oc=AdmynIup9XnsE5JxXVd1_zE7FzN727UY75HOn2eCMyuDdiVUeJR5dMQu5_g0sVils2I37VI-qpTm3c3Z2jRgW96p&_nc_zt=23&_nc_ht=scontent.faep6-1.fna&_nc_gid=_DFv5dLIenutmuKszJJ-Zw&oh=00_AficLl3j8XKnWfcwkv33Y3_eU0mgKxIeel0mzFom0pDFkw&oe=693AFAA7",
             "stock" : 999
+        },
+        {
+            "id": 8,
+            "nombre": "Cachitos Unidad",
+            "precio": 30,
+            "descripcion": "Cachitos venecos",
+            "categoria": "salados",
+            "imagen" : "https://joropofood.com/cdn/shop/articles/Cachitos.jpg?v=1729910381",
+            "stock" : 999
         }
     ]
 
 }
+
