@@ -86,6 +86,14 @@ function arrow () {
     arrowLeft.style.opacity = carousel.scrollLeft <= 0 ? '0' : '1';
     const scrollAmount = 250; // Cuánto desplazar por clic (ajusta según necesites)
 
+    if (carousel.scrollWidth <= carousel.clientWidth) {
+            arrowLeft.style.display = 'none';
+            arrowRight.style.display = 'none';
+        } else {
+            arrowLeft.style.display = '';
+            arrowRight.style.display = '';
+        }
+
     arrowLeft.addEventListener('click', () => {
         carousel.scrollLeft -= scrollAmount;
     });
@@ -97,7 +105,7 @@ function arrow () {
     carousel.addEventListener('scroll', () => {
         arrowLeft.style.opacity = carousel.scrollLeft <= 0 ? '0' : '1';
         arrowRight.style.opacity = 
-            carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 10) 
+            carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 10)
             ? '0' : '1';
     });
 }
@@ -131,6 +139,7 @@ function server_on () {
             })
         })
 }
+
 
 
 
