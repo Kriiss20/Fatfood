@@ -124,12 +124,13 @@ function server_on () {
                 <label>${p.precio} </label>
                 <div class="productos_buttom">
                     <button class="button_buy" data-product-id="${p.id}">Comprar</button>
-                    <img class="producto_car--svg" src="/svg/cart.svg" alt="">
+                    <img class="producto_car--svg" src="svg/cart.svg" alt="">
                 </div>
                 `;
                 catalogo_productos.appendChild(container_productos)
             })
         })
 }
+
 
 
