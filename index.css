@@ -388,6 +388,17 @@ html, body {
         color: #0d0d0d;
         border-radius: 10px;
     }
+    .text_links--bar {
+        font-size: 1em;
+    }
+    #nav_button_carrito--sidebar {
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        right: 10px;
+        top: 13.6em;
+    }
 
 }
+
 
