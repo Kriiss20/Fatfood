@@ -349,6 +349,9 @@ html, body {
 
 }
 @media (max-width: 486px) {
+    .div_body {
+        border: 0.5em solid #000000;
+    }
     .container_anuncio {
         height: 13em;
     }
@@ -400,5 +403,6 @@ html, body {
     }
 
 }
+
 
 
