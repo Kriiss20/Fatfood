@@ -125,7 +125,7 @@ function server_on () {
                 <label>${p.precio} </label>
                 <div class="productos_buttom">
                     <button class="button_buy" onclick="buttom_buy(${p.id})" data-product-id="${p.id}">Comprar</button>
-                    <img class="producto_car--svg" data-product-id="${p.id}" src="/svg/cart.svg">
+                    <img class="producto_car--svg" data-product-id="${p.id}" src="svg/cart.svg">
                 </div>
                 `;
                 catalogo_productos.appendChild(container_productos)
@@ -144,5 +144,6 @@ function buttom_buy (id) {
             })
         })
 }
+
 
 
