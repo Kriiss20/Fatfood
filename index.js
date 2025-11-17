@@ -110,13 +110,6 @@ function arrow () {
     });
 }
 
-document.querySelectorAll('.button_buy').forEach(button => {
-    button.addEventListener('click', () =>{
-        const productId = button.getAttribute('data-product-id')
-        document.write(productId)
-    })
-})
-
 function server_on () {
     fetch('https://raw.githubusercontent.com/Kriiss20/Fatfood/refs/heads/main/fatfood_server.json')
         .then(r => r.json())
@@ -124,23 +117,31 @@ function server_on () {
             let catalogo_productos = document.querySelector('.catalogo_productos')
             data.productos.forEach(p => {
                 const container_productos = document.createElement('div')
-                container_productos.className = 'container_productos'
+                container_productos.className = 'productos'
                 container_productos.className += ` productos_${p.categoria}`
                 container_productos.innerHTML = `
                 <img class="producto_imagen" src="${p.imagen}">
                 <label>${p.nombre}</label>
-                <label>${p.precio}$ </label>
+                <label>${p.precio} </label>
                 <div class="productos_buttom">
-                    <button class="button_buy" data-product-id="${p.id}">Comprar</button>
-                    <img class="producto_car--svg" src="svg/cart.svg" alt="">
+                    <button class="button_buy" onclick="buttom_buy(${p.id})" data-product-id="${p.id}">Comprar</button>
+                    <img class="producto_car--svg" data-product-id="${p.id}" src="/svg/cart.svg">
                 </div>
                 `;
                 catalogo_productos.appendChild(container_productos)
             })
         })
 }
-
-
-
-
+function buttom_buy (id) {
+     fetch('https://raw.githubusercontent.com/Kriiss20/Fatfood/refs/heads/main/fatfood_server.json')
+        .then(r => r.json())
+        .then(data => {
+            data.productos.forEach(pid => {
+                if (id === pid.id) {
+                    console.log(pid)
+                    window.location.href = `/tabs/flash_buy.html?product_id=${id}`
+                } 
+            })
+        })
+}
 
