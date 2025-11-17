@@ -139,9 +139,10 @@ function buttom_buy (id) {
             data.productos.forEach(pid => {
                 if (id === pid.id) {
                     console.log(pid)
-                    window.location.href = `/tabs/flash_buy.html?product_id=${id}`
+                    window.location.href = `tabs/flash_buy.html?product_id=${id}`
                 } 
             })
         })
 }
+
 
