@@ -132,6 +132,58 @@ function server_on () {
             })
         })
 }
+function openSelection (id) {
+    let flash_selection = document.querySelector('.flash_selection').style.display= 'block'
+    let container_sabores = document.querySelector('.container_sabores')
+    fetch('https://raw.githubusercontent.com/Kriiss20/Fatfood/refs/heads/main/fatfood_server.json')
+        .then(r => r.json())
+        .then(data => {
+            data.productos.forEach(p => {
+                if (id === 1) {
+                    if (p.categoria === 'bebidas') {
+                        let selection_sabor = document.createElement('div')
+                        selection_sabor.className = 'selection_sabor'
+                        selection_sabor.innerHTML = `
+                        <img src="${p.imagen}">
+                        <label>${p.nombre}</label>`
+
+                        container_sabores.appendChild(selection_sabor)
+
+                        selection_sabor.addEventListener('click', () => {
+                            document.querySelectorAll('.selection_sabor').forEach(e => e.style.backgroundColor = '')
+                            selection_sabor.style.backgroundColor = '#FFD700'
+                            document.querySelector('.container_sabores_seleccionados').innerHTML= `
+                            <li>${p.nombre} </li>`
+                        })
+                    }
+                } else if (id === 4) {
+
+                    let lista = []
+
+                    document.querySelectorAll('.selection_sabor.dulces').forEach(sabor => {
+
+                        sabor.style.display = 'flex'
+
+                        sabor.addEventListener('click', () => {
+
+                            if (lista.length < 4) {
+                                lista.push(sabor.querySelector('label').innerHTML)
+                            }
+
+                            // Generamos un <li> por cada sabor
+                            let htmlLista = lista.map(item => `<li>${item}</li>`).join('')
+
+                            document.querySelector('.container_sabores_seleccionados').innerHTML = htmlLista
+                        })
+
+                    })
+                }
+
+                
+            })
+        })
+}
+
 function buttom_buy (id) {
      fetch('https://raw.githubusercontent.com/Kriiss20/Fatfood/refs/heads/main/fatfood_server.json')
         .then(r => r.json())
@@ -139,11 +191,22 @@ function buttom_buy (id) {
             data.productos.forEach(pid => {
                 if (id === pid.id) {
                     console.log(pid)
-                    window.location.href = `tabs/flash_buy.html?product_id=${id}`
+                    window.location.href = `/tabs/flash_buy.html?product_id=${id}`
                 } 
             })
         })
 }
+
+let saveCar = JSON.parse(localStorage.getItem('saveCar')) || [];
+function buttom_car (id) {
+    saveCar.push(id)
+    if (id === 1 || id === 4) {
+        openSelection(id)
+        localStorage.setItem('saveCar', JSON.stringify(saveCar))
+    }
+    
+}
+
 
 
 
