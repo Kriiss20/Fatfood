@@ -64,7 +64,6 @@ function selectorCatalogo(tabActive) {
     document.querySelectorAll('.productos_salados, .productos_dulces, .productos_bebidas')
         .forEach(p => p.style.display = 'none');
         
-    console.log(tabActive)
     // Mostrar según el tab
     if (tabActive === '1') {
         [salados, dulces, bebidas].forEach(grupo => {
@@ -245,6 +244,7 @@ function buttom_car (id) {
     }
     
 }
+
 
 
 
