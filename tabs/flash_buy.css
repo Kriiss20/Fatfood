@@ -71,7 +71,7 @@ html, body {
     height: auto;
     width: 90%;
     margin: 1.5em auto;
-    border: 3px solid #dabd1ec9;
+    border: 3.5px solid #dabd1ec9;
     z-index: 2;
 }
 .container_buy--inside {
@@ -82,7 +82,7 @@ html, body {
 .container_buy--inside h3 {
     text-align: center;
     font-weight: 550;
-    font-size: 1.4em;
+    font-size: 1.6em;
     color: #efd232e6;
 }
 .container_productos {
@@ -97,15 +97,16 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1.7px solid #dabd1ec9;
+    gap: 5px;
+    border: 3px solid #dabd1ec9;
     cursor: pointer;
 }
 .productos img {
-    height: 2.5em;
-    width: 2.5em;
+    height: 4em;
+    width: 4em;
 }
 .productos label {
-    font-size: 1.05em;
+    font-size: 1.2em;
     font-weight: 550;
 }
 .container_detalle {
@@ -115,7 +116,7 @@ html, body {
 .container_detalle h4{
     text-align: center;
     font-weight: 550;
-    font-size: 1.05em;
+    font-size: 1.45em;
     color: #efd232e6;
 }
 .container_detalle--inside {
@@ -130,14 +131,26 @@ html, body {
 }
 .producto_detalle {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     gap: 10px;
+    font-size: 1.2em;
     border-bottom: 2px solid #000;
 }
 .producto_detalle--inside {
-    margin-bottom: 0.5em;
-    font-size: 0.9em;
+    margin-bottom: 0.7em;
+    font-size: 1.1em;
+}
+.container_resumen {
+    width: 85%;
+    margin: auto;
+    padding: 10px;
+    color: #fff;
+    background-color: #742027;
+    border-radius: 5px;
+    font-size: 1.05em;
+    box-shadow: inset 0 0 6px 5px #00000063;
+    text-align: right;
 }
 .container_buy--buttoms {
     height: 3em;
@@ -148,7 +161,7 @@ html, body {
 }
 .container_buy--buttoms button {
     padding: 5px 10px;
-    margin-left: 30px;
+    margin-left: 20px;
     font-weight: 700;
     background-color: #742027;
     color: #fff;
@@ -256,5 +269,6 @@ html, body {
     #nav_button_carrito--sidebar {
         top: 13.6em;
     }
+
 
 }
