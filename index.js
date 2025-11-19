@@ -132,6 +132,9 @@ function server_on () {
             })
         })
 }
+
+let saveCar = JSON.parse(localStorage.getItem('saveCar')) || [];
+
 function openSelection(id) {
     document.querySelector('.flash_selection').style.display = 'block'
     let container_sabores = document.querySelector('.container_sabores')
@@ -242,6 +245,7 @@ function buttom_car (id) {
     }
     
 }
+
 
 
 
