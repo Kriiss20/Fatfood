@@ -263,6 +263,7 @@ html, body {
 .producto_car--svg:hover {
     background-color: #b3aeaeea;
 }
+
 .flash_selection {
     height: 100%;
     width: 100%;
@@ -338,6 +339,7 @@ html, body {
     background-color: transparent;
     border: 3px solid #FFD700;
     border-radius: 5px;
+    cursor: pointer;
 }
 /*Cuerpo*/
 
@@ -480,4 +482,5 @@ html, body {
     }
 
 }
+
 
