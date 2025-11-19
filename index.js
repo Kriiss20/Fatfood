@@ -225,7 +225,7 @@ function buttom_buy (id) {
         .then(data => {
             data.productos.forEach(pid => {
                 if (id === pid.id) {
-                    window.location.href = `/tabs/flash_buy.html?product_id=${id}`
+                    window.location.href = `tabs/flash_buy.html?product_id=${id}`
                 } 
             })
         })
@@ -242,6 +242,7 @@ function buttom_car (id) {
     }
     
 }
+
 
 
 
