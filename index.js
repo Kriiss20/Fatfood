@@ -61,10 +61,10 @@ function selectorCatalogo(tabActive) {
     const bebidas = document.querySelectorAll('.productos_bebidas');
 
     // Ocultar todos
-    document.querySelectorAll('.container_productos').forEach(p => {
-        p.style.display = 'none';
-    });
-
+    document.querySelectorAll('.productos_salados, .productos_dulces, .productos_bebidas')
+        .forEach(p => p.style.display = 'none');
+        
+    console.log(tabActive)
     // Mostrar según el tab
     if (tabActive === '1') {
         [salados, dulces, bebidas].forEach(grupo => {
@@ -132,57 +132,92 @@ function server_on () {
             })
         })
 }
-function openSelection (id) {
-    let flash_selection = document.querySelector('.flash_selection').style.display= 'block'
+function openSelection(id) {
+    document.querySelector('.flash_selection').style.display = 'block'
     let container_sabores = document.querySelector('.container_sabores')
+    let lista = []
+    let activo = 0
+
     fetch('https://raw.githubusercontent.com/Kriiss20/Fatfood/refs/heads/main/fatfood_server.json')
         .then(r => r.json())
         .then(data => {
-            data.productos.forEach(p => {
-                if (id === 1) {
+            /*Bebidas */
+            if (id === 1) {
+
+                data.productos.forEach(p => {
                     if (p.categoria === 'bebidas') {
+
                         let selection_sabor = document.createElement('div')
                         selection_sabor.className = 'selection_sabor'
                         selection_sabor.innerHTML = `
-                        <img src="${p.imagen}">
-                        <label>${p.nombre}</label>`
+                            <img src="${p.imagen}">
+                            <label>${p.nombre}</label>`
 
                         container_sabores.appendChild(selection_sabor)
 
                         selection_sabor.addEventListener('click', () => {
-                            document.querySelectorAll('.selection_sabor').forEach(e => e.style.backgroundColor = '')
+                            document.querySelectorAll('.selection_sabor').forEach(e => {
+                                e.style.backgroundColor = ''
+                                lista.pop()
+                            })
+
                             selection_sabor.style.backgroundColor = '#FFD700'
-                            document.querySelector('.container_sabores_seleccionados').innerHTML= `
-                            <li>${p.nombre} </li>`
+                            lista.push(p.nombre)
+                            document.querySelector('.container_sabores_seleccionados').innerHTML =
+                                `<li>${p.nombre}</li>`
+                            activo = 1
                         })
                     }
-                } else if (id === 4) {
+                })
+            }
+            /*Donas */
+            if (id === 4) {
 
-                    let lista = []
+                document.querySelectorAll('.selection_sabor.dulces').forEach(sabor => {
 
-                    document.querySelectorAll('.selection_sabor.dulces').forEach(sabor => {
+                    sabor.style.display = 'flex'
 
-                        sabor.style.display = 'flex'
+                    sabor.addEventListener('click', () => {
 
-                        sabor.addEventListener('click', () => {
+                        if (lista.length < 4) {
+                            lista.push(sabor.querySelector('label').innerHTML)
+                        } 
+                        activo = (lista.length >= 4) ? 1 : 0
 
-                            if (lista.length < 4) {
-                                lista.push(sabor.querySelector('label').innerHTML)
-                            }
-
-                            // Generamos un <li> por cada sabor
-                            let htmlLista = lista.map(item => `<li>${item}</li>`).join('')
-
-                            document.querySelector('.container_sabores_seleccionados').innerHTML = htmlLista
-                        })
-
+                        let htmlLista = lista.map(item => `<li>${item}</li>`).join('')
+                        document.querySelector('.container_sabores_seleccionados').innerHTML = htmlLista
                     })
-                }
+                })
+            }
 
-                
+            // Botón eliminar
+            document.getElementById('button_selection_eliminar').addEventListener('click', () => {
+                    lista.pop()
+                    let htmlLista = lista.map(i => `<li>${i}</li>`).join('')
+                    document.querySelector('.container_sabores_seleccionados').innerHTML = htmlLista
+                })
+
+            // Botón cancelar
+            document.getElementById('button_selection_cancelar').addEventListener('click', () => {
+                    document.querySelector('.flash_selection').style.display = 'none'
+                    window.location.reload()
+                })
+
+            // Botón continuar
+            document.getElementById('button_selection_continuar').addEventListener('click', () => {
+                if (activo == 1) {
+                    let block =[id,lista.join()]
+
+                    saveCar.push(block)
+
+                    localStorage.setItem('saveCar', JSON.stringify(saveCar))
+
+                    window.location.reload()
+                }
             })
         })
 }
+
 
 function buttom_buy (id) {
      fetch('https://raw.githubusercontent.com/Kriiss20/Fatfood/refs/heads/main/fatfood_server.json')
@@ -190,18 +225,19 @@ function buttom_buy (id) {
         .then(data => {
             data.productos.forEach(pid => {
                 if (id === pid.id) {
-                    console.log(pid)
                     window.location.href = `/tabs/flash_buy.html?product_id=${id}`
                 } 
             })
         })
 }
 
-let saveCar = JSON.parse(localStorage.getItem('saveCar')) || [];
+
 function buttom_car (id) {
-    saveCar.push(id)
     if (id === 1 || id === 4) {
         openSelection(id)
+        localStorage.setItem('saveCar', JSON.stringify(saveCar))
+    } else {
+        saveCar.push(id)
         localStorage.setItem('saveCar', JSON.stringify(saveCar))
     }
     
