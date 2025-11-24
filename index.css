@@ -32,6 +32,9 @@ html, body {
     border: 3px solid #dabd1ec9;
     border-radius: 0 0 5px 5px;
 }
+.nav_container a{
+    text-decoration: none;
+}
 .nav_container h3 {
     padding: 0;
     margin: 0;
@@ -482,5 +485,6 @@ html, body {
     }
 
 }
+
 
 
